@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Insert Page{% endblock %}
+
+
+
+{% block content%}
+    
+<form method="POST">
+
+    <br/br/br>
+    
+
+    <table class = "table">
+        <tr scope = "row">
+            {% for header in headings%}
+                <th>{{header}}</th>
+            {%endfor%}
+        </tr>
+        {%for row in data%}
+        <tr>
+            {%for cell in row%}
+                <td>{{cell}}</td>
+            {%endfor%}
+        </tr>
+        {%endfor%}
+
+    </table>
+
+
+    
+    
+</form>
+{%endblock%}

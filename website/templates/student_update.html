@@ -1,0 +1,47 @@
+<!--
+
+    student_id = database.Column(database.Integer, primary_key = True)
+    email = database.Column(database.String(100))
+    name = database.Column(database.String(100))
+    lname = database.Column(database.String(100))
+    course = database.Column(database.String(100))
+-->
+{% extends "base.html" %}
+
+{% block title %}Insert Page{% endblock %}
+
+
+
+{% block content%}
+    
+<form method="POST">
+
+    <br/br/br>
+    <h3 align="center">Update a Student</h3>
+
+    <div class="form-group">
+        <label for="student_id">Student ID</label>
+        <input 
+        type="student_id" 
+        class="form-control" 
+        id="student_id" 
+        name="student_id" 
+        placeholder="Enter ID">  
+    </div>
+    <!-- We're going to update by Course-->
+    <br/><br/><br/>
+    <h2>Set Name to </h2>
+    <br><br>
+    <div>
+        <label for="course_name">First Name</label>
+        <input 
+        type="course_name" 
+        class="form-control" 
+        id="course_name" 
+        name="course_name" 
+        placeholder="Enter Name">  
+    </div>
+    <br>
+    <button type = "submit" class = "btn btn-primary">Submit</button>
+</form>
+{%endblock%}

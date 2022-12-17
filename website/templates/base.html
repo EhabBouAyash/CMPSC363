@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=width-device, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        crossorigin="anonymous" />
+
+    <title>{% block title %}Home{% endblock %}</title>
+</head>
+
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-warning" style="display:flex;">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" style="display:flex;border:none;">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class = "collapse navbar-collapse" id = "navbar"style="display:flex;">
+            <div class="navbar-toggler" style="display:flex;border:none;">
+                  
+                {% if user.is_authenticated %}
+                <a class = "nav-item nav-link" id = "home" href="/"><p class="text-dark">Home</p></a>
+                <nav class="navbar-toggler" style="display:inline-block; border: none;">    
+                    <details>
+                        <summary class="text-dark">Student Actions</summary>
+                        <br>
+                        <a class = "nav-item nav-link" id = "students" href="/students"><p class="text-dark">Students Table</p></a></option>
+                        <a class = "nav-item nav-link" id = "student_update" href="/student_update"><p class="text-dark">Update Student</p></a>
+                        <a class = "nav-item nav-link" id = "student_query" href="/student_query"><p class="text-dark">Search Student</p></a>
+                        <a class = "nav-item nav-link" id = "student_insert" href="/student_insert"><p class="text-dark">Insert Student</p></a>
+                        <a class = "nav-item nav-link" id = "student_delete" href="/student_delete"><p class="text-dark">Delete Student</p></a>
+                    </details>
+                </nav>
+                <nav class="navbar-toggler" style="display:inline-block; border: none;">    
+                    <details>
+                        <summary class="text-dark">Course Actions</summary>
+                        <br>
+                        <a class = "nav-item nav-link" id = "courses" href="/courses"><p class="text-dark">Course Table</p></a></option>
+                        <a class = "nav-item nav-link" id = "course_update" href="/course_update"><p class="text-dark">Update Course</p></a>
+                        <a class = "nav-item nav-link" id = "course_query" href="/course_query"><p class="text-dark">Search Course</p></a>
+                        <a class = "nav-item nav-link" id = "course_insert" href="/course_insert"><p class="text-dark">Insert Course</p></a>
+                        <a class = "nav-item nav-link" id = "course_delete" href="/course_delete"><p class="text-dark">Delete Course</p></a>
+                    </details>
+                </nav>        
+                <nav class="navbar-toggler" style="display:inline-block; border: none;">    
+                    <details>
+                        <summary class="text-dark">Department Actions</summary>
+                        <br>
+                        <a class = "nav-item nav-link" id = "departments" href="/departments"><p class="text-dark">Department Table</p></a></option>
+                        <a class = "nav-item nav-link" id = "departments_query" href="/departments_query"><p class="text-dark">Search Department</p></a>
+                        <a class = "nav-item nav-link" id = "departments_insert" href="/departments_insert"><p class="text-dark">Insert Department</p></a>
+                        <a class = "nav-item nav-link" id = "departments_delete" href="/departments_delete"><p class="text-dark">Delete Department</p></a>
+                    </details>
+                </nav>  
+                <nav class="navbar-toggler"style="display:inline-block; border: none;">    
+                    <details>
+                        <summary class="text-dark">Teacher Actions</summary>
+                        <br>
+                        <a class = "nav-item nav-link" id = "teachers" href="/teachers"><p class="text-dark">Teachers Table</p></a></option>
+                        <a class = "nav-item nav-link" id = "teachers_update" href="/teachers_update"><p class="text-dark">Update Teacher</p></a>
+                        <a class = "nav-item nav-link" id = "teachers_query" href="/teachers_query"><p class="text-dark">Search Teacher</p></a>
+                        <a class = "nav-item nav-link" id = "teachers_insert" href="/teachers_insert"><p class="text-dark">Insert Teacher</p></a>
+                        <a class = "nav-item nav-link" id = "teachers_delete" href="/teachers_delete"><p class="text-dark">Delete Teacher</p></a>
+                    </details>
+                </nav>  
+
+                <a class = "nav-item nav-link" id = "logout" href="/logout"><p class = "text-dark">Logout</p> </a>
+                {% else %}
+                <a class = "nav-item nav-link" id = "login" href="/login">Login</a>
+                <a class = "nav-item nav-link" id = "signUp" href="/sign-up">Sign Up</a>
+                {%endif%}
+            </div>
+        </div>
+    </nav>
+    {% with messages = get_flashed_messages(with_categories=true)%}
+    {%if messages%}
+        {% for cat,message in messages%}
+            {% if cat =='error'%}
+                <div class = "alert alert-danger alter-dismissable fade show" role = 'alert'>
+                    {{message}}
+                    <button type = "button" class = "close" data-dismiss="alert">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            
+            {% else %}
+
+                <div class = "alert alert-success alter-dismissable fade show" role = 'alert'>
+                    {{message}}
+                    <button type = "button" class = "close" data-dismiss="alert">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+            {%endif%}
+        {%endfor%}
+    {%endif%}
+    
+    {%endwith%}
+    <div class = "container">
+        {% block content%}
+        {%endblock%}
+    </div>
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="{{ url_for('static', filename='index.js') }}"></script>
+
+</body>
+
+</html>

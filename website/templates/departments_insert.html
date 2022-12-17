@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Insert Page{% endblock %}
+
+
+
+{% block content%}
+    
+<form method="POST">
+
+    <br/br/br>
+    <h3 align="center">Insert a Department</h3>
+
+    <div class="form-group">
+        <label for="department_id">Department ID</label>
+        <input 
+        type="department_id" 
+        class="form-control" 
+        id="department_id" 
+        name="department_id" 
+        placeholder="Enter ID">  
+    </div>
+
+    <div class="form-group">
+        <label for="department_name">Department Name</label>
+        <input 
+        type="department_name" 
+        class="form-control" 
+        id="department_name" 
+        name="department_name" 
+        placeholder="Enter Name">  
+    </div>
+
+
+    <br/>
+    <button type = "submit" class = "btn btn-primary">Submit</button>
+</form>
+{%endblock%}

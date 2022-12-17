@@ -1,0 +1,84 @@
+<!--
+
+    student_id = database.Column(database.Integer, primary_key = True)
+    email = database.Column(database.String(100))
+    name = database.Column(database.String(100))
+    lname = database.Column(database.String(100))
+    course = database.Column(database.String(100))
+-->
+{% extends "base.html" %}
+
+{% block title %}Insert Page{% endblock %}
+
+
+
+{% block content%}
+    
+<form method="POST">
+
+    <br/br/br>
+    <h3 align="center">Enter a Student</h3>
+
+    <div class="form-group">
+        <label for="student_id">Student ID</label>
+        <input 
+        type="student_id" 
+        class="form-control" 
+        id="student_id" 
+        name="student_id" 
+        placeholder="Enter ID">  
+    </div>
+    <div class="form-group">
+        <label for="firstname">First Name</label>
+        <input 
+        type="firstname" 
+        class="form-control" 
+        id="firstname" 
+        name="firstname" 
+        placeholder="Enter first name">  
+    </div>
+
+    <div class="form-group">
+        <label for="lastname">Last Name</label>
+        <input 
+        type="lastname" 
+        class="form-control" 
+        id="lastname" 
+        name="lastname" 
+        placeholder="Enter last name">  
+    </div>
+    
+    <div class="form-group">
+        <label for="email">Student Email</label>
+        <input 
+        type="email" 
+        class="form-control" 
+        id="email" 
+        name="email" 
+        placeholder="Enter email">  
+    </div>
+   
+
+    
+    <div class="form-group">
+        <label for="course">Course</label>
+        <input 
+        type="course" 
+        class="form-control" 
+        id="course" 
+        name="course" 
+        placeholder="Enter Course Name">  
+    </div>
+    <div class="form-group">
+        <label for="course_id">Course ID</label>
+        <input 
+        type="course_id" 
+        class="form-control" 
+        id="course_id" 
+        name="student_id" 
+        placeholder="Enter ID">  
+    </div>
+    <br/>
+    <button type = "submit" class = "btn btn-primary">Submit</button>
+</form>
+{%endblock%}

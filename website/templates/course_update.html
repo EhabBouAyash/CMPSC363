@@ -1,0 +1,40 @@
+
+{% extends "base.html" %}
+
+{% block title %}Insert Page{% endblock %}
+
+
+
+{% block content%}
+    
+<form method="POST">
+
+    <br/br/br>
+    <h3 align="center">Update a Course</h3>
+
+    <div class="form-group">
+        <label for="course_id">Course ID</label>
+        <input 
+        type="course_id" 
+        class="form-control" 
+        id="course_id" 
+        name="course_id" 
+        placeholder="Enter ID">  
+    </div>
+    <!-- We're going to update by Course-->
+    <br/><br/><br/>
+    <h2>Set Course to </h2>
+    <br><br>
+    <div>
+        <label for="course_name">Course</label>
+        <input 
+        type="course_name" 
+        class="form-control" 
+        id="course_name" 
+        name="course_name" 
+        placeholder="Enter Course">  
+    </div>
+    <br>
+    <button type = "submit" class = "btn btn-primary">Submit</button>
+</form>
+{%endblock%}

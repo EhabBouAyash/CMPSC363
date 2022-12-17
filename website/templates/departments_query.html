@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Search{% endblock %}
+    
+
+    {% block content%}
+    
+<!-- we need to input a form here to query for a student --> 
+</br>
+    <h1 align = "center">Search for Department</h1>
+    </br></br>
+    <form method="POST">
+        <div class="form-group">
+            <label for="department_id">Department ID</label>
+            <input 
+            type="department_id" 
+            class="form-control" 
+            id="department_id" 
+            name="department_id" 
+            placeholder="Enter ID">  
+        </div>
+        <br/>
+        
+        <button type = "submit" class = "btn btn-primary">Submit</button>
+    </form>
+    
+    {%endblock%}
